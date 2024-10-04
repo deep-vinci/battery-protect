@@ -2,7 +2,7 @@
 
 batteryPercentage=$(upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | awk '{print $2}' | sed 's/%//')
 batteryStatus=$(upower -i $(upower -e | grep 'BAT') | grep -E "state" | awk '{print $2}' | sed 's/%//')
-upperThresholdPercentage=20
+upperThresholdPercentage=80
 
 # Path to a file that will control notifications
 CONTROL_FILE="$HOME/battery-enable"
@@ -16,7 +16,7 @@ fi
 if [ "$batteryStatus" == "charging" ]; then
 
     if [ $batteryPercentage -ge $upperThresholdPercentage ]; then
-        notify-send "Remove Charger" "Battery $batteryPercentage% Charged" --app-name="Battery Protect" --expire-time=5000
+        notify-send "Remove Charger" "Battery $batteryPercentage% Charged" --app-name="Battery Protect"
     fi
 
 fi
