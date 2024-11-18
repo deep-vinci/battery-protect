@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## To Disable the battery-protect 80% limit delete the 'battery-enable' file
+
 export DISPLAY=":1"  
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
